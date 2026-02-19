@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 import LandingPage from './pages/LandingPage'
 import SurveyPage from './pages/SurveyPage'
 import ResultsPage from './pages/ResultsPage'
@@ -18,6 +19,7 @@ function AnimatedRoutes() {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -8 }}
         transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1.0] }}
+        className="flex-1"
       >
         <Routes location={location}>
           <Route path="/" element={<LandingPage />} />
@@ -34,9 +36,10 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-gaming-dark">
+      <div className="min-h-screen bg-gaming-dark flex flex-col">
         <Navbar />
         <AnimatedRoutes />
+        <Footer />
       </div>
     </BrowserRouter>
   )
