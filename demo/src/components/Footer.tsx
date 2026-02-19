@@ -8,7 +8,7 @@ export default function Footer() {
           © 2026 自游 — 你的私人游戏顾问
         </p>
         <p className="text-sm text-gray-500 flex items-center gap-1">
-          Made with <Heart size={12} className="text-gaming-rose" /> by{' '}
+          Made by{' '}
           <span className="text-gray-400">Wenxuan Huang</span>
           {' & '}
           <span className="text-gray-400">Taijun Shen</span>
