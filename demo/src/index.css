@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+@theme {
+  --color-apple-bg: #F5F5F7;
+  --color-apple-card: #FFFFFF;
+  --color-apple-text: #1D1D1F;
+  --color-apple-secondary: #86868B;
+  --color-apple-disabled: #D2D2D7;
+  --color-apple-blue: #0071E3;
+  --color-apple-blue-hover: #0077ED;
+  --color-apple-green: #34C759;
+  --color-apple-orange: #FF9500;
+  --color-apple-red: #FF3B30;
+  --color-apple-purple: #AF52DE;
+  --color-apple-teal: #5AC8FA;
+  --color-apple-divider: rgba(0, 0, 0, 0.06);
+  --color-gaming-dark: #0A0E1A;
+  --color-gaming-card: #151A2E;
+  --color-gaming-accent: #6366F1;
+  --color-gaming-accent-light: #818CF8;
+  --color-gaming-cyan: #22D3EE;
+  --color-gaming-emerald: #34D399;
+  --color-gaming-rose: #FB7185;
+  --color-gaming-amber: #FBBF24;
+  --color-gaming-border: rgba(99, 102, 241, 0.2);
+  --font-family-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-family-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    color: #F5F5F7;
+    background-color: #0A0E1A;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+  [data-theme="dopamine"] body {
+    color: #292018;
+    background-color: #FFF7ED;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   Dopamine theme: CSS variable overrides
+   ═══════════════════════════════════════════ */
+
+[data-theme="dopamine"] {
+  --color-gaming-dark: #FFF7ED;
+  --color-gaming-card: #FFFFFF;
+  --color-gaming-accent: #F97316;
+  --color-gaming-accent-light: #FB923C;
+  --color-gaming-cyan: #EAB308;
+  --color-gaming-emerald: #65A30D;
+  --color-gaming-rose: #E11D48;
+  --color-gaming-amber: #D97706;
+  --color-gaming-border: rgba(249, 115, 22, 0.12);
+
+  --color-white: #292018;
+  --color-gray-200: #A8A29E;
+  --color-gray-300: #78716C;
+  --color-gray-400: #57534E;
+  --color-gray-500: #44403C;
+  --color-black: #FFFBF5;
+}
+
+/* Keep real white text on colored button/badge backgrounds */
+[data-theme="dopamine"] .bg-gaming-accent,
+[data-theme="dopamine"] .bg-gaming-accent-light,
+[data-theme="dopamine"] .bg-red-600,
+[data-theme="dopamine"] .bg-red-500 {
+  color: #fff;
+}
+
+/* ═══════════════════════════════════════════
+   Cyber theme (default): glass & effects
+   ═══════════════════════════════════════════ */
+
+.glass-nav {
+  background: rgba(10, 14, 26, 0.82);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 0.5px solid rgba(99, 102, 241, 0.15);
+  transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+.glass-card {
+  background: rgba(21, 26, 46, 0.85);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(99, 102, 241, 0.12);
+  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.glow-accent {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.15), 0 0 60px rgba(99, 102, 241, 0.05);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.15), 0 0 60px rgba(34, 211, 238, 0.05);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #6366F1, #22D3EE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(34, 211, 238, 0.4));
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════
+   Dopamine theme: glass & effects overrides
+   ═══════════════════════════════════════════ */
+
+[data-theme="dopamine"] .glass-nav {
+  background: rgba(255, 247, 237, 0.85);
+  border-bottom-color: rgba(249, 115, 22, 0.1);
+}
+
+[data-theme="dopamine"] .glass-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(249, 115, 22, 0.08);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dopamine"] .glow-accent {
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.1), 0 4px 16px rgba(249, 115, 22, 0.06);
+}
+
+[data-theme="dopamine"] .glow-cyan {
+  box-shadow: 0 0 20px rgba(234, 179, 8, 0.1), 0 4px 16px rgba(234, 179, 8, 0.06);
+}
+
+[data-theme="dopamine"] .gradient-text {
+  background: linear-gradient(135deg, #F97316, #EAB308);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="dopamine"] .gradient-border::before {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.35), rgba(234, 179, 8, 0.35));
+}
+
+/* ═══════════════════════════════════════════
+   Scrollbar
+   ═══════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.5);
+}
+[data-theme="dopamine"] ::-webkit-scrollbar-thumb {
+  background: rgba(249, 115, 22, 0.25);
+}
+[data-theme="dopamine"] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(249, 115, 22, 0.45);
+}
