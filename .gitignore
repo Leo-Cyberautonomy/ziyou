@@ -10,10 +10,10 @@ dist/
 build/
 *.egg-info/
 
-# Environment & secrets
-.env
+# Environment & secrets (backend only — contains real API keys)
+backend/.env
+backend/.env.local
 .env.local
-.env.production
 
 # IDE
 .idea/
