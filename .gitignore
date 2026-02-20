@@ -27,7 +27,7 @@ Thumbs.db
 
 # Database
 *.db
-data/
+backend/data/
 
 # Logs
 *.log

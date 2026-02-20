@@ -1,5 +1,6 @@
 import json
 import logging
+import os
 from datetime import datetime, timedelta, timezone
 
 import aiosqlite
@@ -15,6 +16,11 @@ _db_path: str = ""
 async def init_cache() -> None:
     global _db_path
     _db_path = get_settings().db_path
+
+    # Ensure the parent directory exists (e.g. data/) before connecting
+    db_dir = os.path.dirname(_db_path)
+    if db_dir:
+        os.makedirs(db_dir, exist_ok=True)
 
     async with aiosqlite.connect(_db_path) as db:
         await db.execute("""

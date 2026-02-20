@@ -1,5 +1,3 @@
-import { Heart } from 'lucide-react'
-
 export default function Footer() {
   return (
     <footer className="border-t border-gaming-border bg-gaming-dark/50 py-6 mt-auto">
